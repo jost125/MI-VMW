@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/flickr">
+  <Logger className="org.apache.catalina.logger.FileLogger" prefix="flickr." suffix=".log" timestamp="true"/>
+</Context>
