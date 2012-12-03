@@ -8,7 +8,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 public class SimilarityRanker {
-	public double getRank(File image, Color color) throws CannonGetRankException {
+	public double getRank(File image, Color color) throws CannotGetRankException {
 		double result = 0.0;
 		try {
 			List<Color> pixels = getPixels(image);
@@ -20,7 +20,7 @@ public class SimilarityRanker {
 
 			result = sum / pixels.size();
 		} catch (IOException ex) {
-			throw new CannonGetRankException(ex);
+			throw new CannotGetRankException(ex);
 		}
 
 		return result;

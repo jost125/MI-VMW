@@ -10,7 +10,7 @@ public class SimilarityRankerTest extends TestCase {
 		instance = new SimilarityRanker();
 	}
 
-	public void testGetRank_photo() throws CannonGetRankException {
+	public void testGetRank_photo() throws CannotGetRankException {
 		File image = new File(getClass().getResource("img.jpg").getFile());
 		short red = 255;
 		short green = 255;
@@ -22,7 +22,7 @@ public class SimilarityRankerTest extends TestCase {
 		assertTrue(rank > 50);
 	}
 
-	public void testGetRank_red() throws CannonGetRankException {
+	public void testGetRank_red() throws CannotGetRankException {
 		File image = new File(getClass().getResource("red.png").getFile());
 		short red = 255;
 		short green = 0;
