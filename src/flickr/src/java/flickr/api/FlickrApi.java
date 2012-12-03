@@ -29,25 +29,33 @@ public class FlickrApi {
 		Integer numberOfPages = (int)Math.ceil((double)limit / 500.0);
 		for (int i = 0; i < numberOfPages; i++) {
 			List<Photo> photos = restClient.searchPhotosByKeyword(keyword, i + 1, (i + 1 == numberOfPages) ? limit : 500);
-			for (Photo photo : photos) {
-				CountRankForPhotoThread thread = new CountRankForPhotoThread(photo, color, similarityRanker);
-				threadsPool.add(thread);
-				thread.start();
-			}
-			waitForThreadsToFinish();
+			countRankForPhotos(photos, color);
 			orderedPhotos.addAll(photos);
 		}
 
 		return orderedPhotos;
 	}
 
-	private void waitForThreadsToFinish() {
+	private void waitForThreadsToFinish() throws InterruptedException {
 		for (Thread thread : threadsPool) {
-			try {
-				thread.join();
-			} catch (InterruptedException ex) {
-				Logger.getLogger(FlickrApi.class.getName()).log(Level.SEVERE, null, ex);
-			}
+			thread.join();
 		}
+	}
+
+	private void countRankForPhotos(List<Photo> photos, Color color) {
+		try {
+			tryCountRankForPhotos(photos, color);
+		} catch (InterruptedException ex) {
+			Logger.getLogger(FlickrApi.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+
+	private void tryCountRankForPhotos(List<Photo> photos, Color color) throws InterruptedException {
+		for (Photo photo : photos) {
+			CountRankForPhotoThread thread = new CountRankForPhotoThread(photo, color, similarityRanker);
+			threadsPool.add(thread);
+			thread.start();
+		}
+		waitForThreadsToFinish();
 	}
 }
