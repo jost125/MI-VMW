@@ -6,16 +6,14 @@ import junit.framework.TestCase;
 public class SimilarityRankerTest extends TestCase {
 	private SimilarityRanker instance;
 
+	@Override
 	protected void setUp() throws Exception {
 		instance = new SimilarityRanker();
 	}
 
 	public void testGetRank_photo() throws CannonGetRankException {
 		File image = new File(getClass().getResource("img.jpg").getFile());
-		short red = 255;
-		short green = 255;
-		short blue = 255;
-		Color color = new Color(red, green, blue);
+		Color color = Color.getInstaceFromHex("FFFFFF");
 		
 		double rank = instance.getRank(image, color);
 
@@ -24,10 +22,7 @@ public class SimilarityRankerTest extends TestCase {
 
 	public void testGetRank_red() throws CannonGetRankException {
 		File image = new File(getClass().getResource("red.png").getFile());
-		short red = 255;
-		short green = 0;
-		short blue = 0;
-		Color color = new Color(red, green, blue);
+		Color color = Color.getInstaceFromHex("FF0000");
 
 		double rank = instance.getRank(image, color);
 
