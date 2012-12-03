@@ -32,4 +32,11 @@
 
 	<bean id="documentBuilderFactory" class="javax.xml.parsers.DocumentBuilderFactory" factory-method="newInstance" />
 	<bean id="documentBuilder" class="javax.xml.parsers.DocumentBuilder" factory-bean="documentBuilderFactory" factory-method="newDocumentBuilder" />
+
+	<bean id="flickerApi" class="flickr.api.FlickrApi">
+		<constructor-arg ref="restClient" />
+		<constructor-arg ref="similarityRanker" />
+	</bean>
+
+	<bean id="similarityRanker" class="flickr.api.image.SimilarityRanker"></bean>
 </beans>

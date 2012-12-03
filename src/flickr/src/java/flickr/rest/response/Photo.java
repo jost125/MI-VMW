@@ -1,12 +1,14 @@
 package flickr.rest.response;
 
 public class Photo {
+
 	private String id;
 	private String owner;
 	private String secret;
 	private String server;
 	private String farm;
 	private String title;
+	private Double rank;
 
 	public String getId() {
 		return id;
@@ -54,6 +56,14 @@ public class Photo {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Double getRank() {
+		return rank;
+	}
+
+	public void setRank(Double rank) {
+		this.rank = rank;
 	}
 
 }
