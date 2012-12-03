@@ -2,6 +2,34 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd" xmlns:context="http://www.springframework.org/schema/context">
 
+	<bean id="restClient" class="flickr.rest.RestClient">
+		<constructor-arg value="3116811c8f556009c0326eed39146382"></constructor-arg>
+		<constructor-arg ref="restTemplate"></constructor-arg>
+		<constructor-arg ref="xmlConverter"></constructor-arg>
+	</bean>
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+		<constructor-arg ref="httpRequestFactory"></constructor-arg>
+	</bean>
+
+	<bean id="httpRequestFactory" class="org.springframework.http.client.SimpleClientHttpRequestFactory">
+		<property name="readTimeout" value="10000000" />
+	</bean>
+
+	<bean id="xmlConverter" class="flickr.rest.xml.XmlConverter">
+		<constructor-arg ref="xmlParser" />
+	</bean>
+
+	<bean id="xmlParser" class="flickr.rest.xml.XmlParser">
+		<constructor-arg ref="xpathCompiler"></constructor-arg>
+		<constructor-arg ref="documentBuilder"></constructor-arg>
+	</bean>
+
+	<bean id="xpathFactory" class="javax.xml.xpath.XPathFactory" factory-method="newInstance" />
+	<bean id="xpathCompiler" class="javax.xml.xpath.XPath" factory-bean="xpathFactory" factory-method="newXPath" />
+
+	<bean id="documentBuilderFactory" class="javax.xml.parsers.DocumentBuilderFactory" factory-method="newInstance" />
+	<bean id="documentBuilder" class="javax.xml.parsers.DocumentBuilder" factory-bean="documentBuilderFactory" factory-method="newDocumentBuilder" />
 </beans>
