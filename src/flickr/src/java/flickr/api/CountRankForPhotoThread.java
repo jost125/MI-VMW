@@ -27,17 +27,20 @@ public class CountRankForPhotoThread extends Thread {
 
 	@Override
 	public void run() {
-		String fileUrl = "http://farm" + photo.getFarm() + ".staticflickr.com/" + photo.getServer() + "/" + photo.getId() + "_" + photo.getSecret() + "_s.jpg";
+		File file = null;
 		try {
-			URL url = new URL(fileUrl);
-			File file = File.createTempFile(photo.getId() + "_" + photo.getSecret() + "_s", ".jpg");
-			System.out.println(file.getAbsolutePath());
+			URL url = new URL("http://farm" + photo.getFarm() + ".staticflickr.com/" + photo.getServer() + "/" + photo.getId() + "_" + photo.getSecret() + "_s.jpg");
+			file = File.createTempFile(photo.getId() + "_" + photo.getSecret() + "_s", ".jpg");
+			System.out.println("Created: " + file.getAbsoluteFile());
 			downloadFile(url, file);
+			System.out.println("Downloaded: " + file.getAbsoluteFile());
 			photo.setRank(similarityRanker.getRank(file, color));
-			file.delete();
+			System.out.println("Ranked: " + file.getAbsoluteFile());
 		} catch (Exception ex) {
 			Logger.getLogger(FlickrApi.class.getName()).log(Level.SEVERE, null, ex);
 			photo.setRank(Double.POSITIVE_INFINITY);
+		} finally {
+			finish(file);
 		}
 	}
 
@@ -45,5 +48,11 @@ public class CountRankForPhotoThread extends Thread {
 		ReadableByteChannel rbc = Channels.newChannel(url.openStream());
 		FileOutputStream fos = new FileOutputStream(file);
 		fos.getChannel().transferFrom(rbc, 0, 1 << 24);
+	}
+
+	private synchronized void finish(File file) {
+		if (file != null) {
+			file.delete();
+		}
 	}
 }
