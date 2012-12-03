@@ -1,4 +1,4 @@
-package flickr.image;
+package flickr.api.image;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

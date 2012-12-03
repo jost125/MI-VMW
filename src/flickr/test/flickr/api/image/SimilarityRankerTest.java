@@ -1,4 +1,4 @@
-package flickr.image;
+package flickr.api.image;
 
 import java.io.File;
 import junit.framework.TestCase;

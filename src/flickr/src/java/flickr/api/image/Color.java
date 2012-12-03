@@ -1,4 +1,4 @@
-package flickr.image;
+package flickr.api.image;
 
 public class Color {
 	private short red;
