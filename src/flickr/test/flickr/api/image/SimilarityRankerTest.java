@@ -11,7 +11,7 @@ public class SimilarityRankerTest extends TestCase {
 		instance = new SimilarityRanker();
 	}
 
-	public void testGetRank_photo() throws CannonGetRankException {
+	public void testGetRank_photo() throws CannotGetRankException {
 		File image = new File(getClass().getResource("img.jpg").getFile());
 		Color color = Color.getInstaceFromHex("FFFFFF");
 		
@@ -20,7 +20,7 @@ public class SimilarityRankerTest extends TestCase {
 		assertTrue(rank > 50);
 	}
 
-	public void testGetRank_red() throws CannonGetRankException {
+	public void testGetRank_red() throws CannotGetRankException {
 		File image = new File(getClass().getResource("red.png").getFile());
 		Color color = Color.getInstaceFromHex("FF0000");
 

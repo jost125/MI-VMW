@@ -18,7 +18,8 @@ public class IndexController {
 	}
 
 	@RequestMapping(value="/")
-	public String index() {
+	public String index(Model model) {
+		model.addAttribute("searchForm", new Search());
 		return "index";
 	}
 
