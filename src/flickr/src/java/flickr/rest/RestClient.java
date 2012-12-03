@@ -19,7 +19,7 @@ public class RestClient {
 
 	public List<Photo> searchPhotosByKeyword(String keyword, Integer page) {
 		String method = "flickr.photos.search";
-		String parameters = "text=" + keyword + "&sort=relevance&page=" + page;
+		String parameters = "text=" + keyword + "&sort=relevance&per_page=500&page=" + page;
 		String xml = query(method, parameters);
 
 		System.out.println(xml);
