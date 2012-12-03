@@ -22,13 +22,7 @@ public class RestClient {
 		String parameters = "text=" + keyword + "&sort=relevance&per_page=500&page=" + page;
 		String xml = query(method, parameters);
 
-		System.out.println(xml);
-
-		List<Photo> mapped = xmlConverter.mapPhotos(xml);
-
-		System.out.println(mapped);
-
-		return mapped;
+		return xmlConverter.mapPhotos(xml);
 	}
 
 	private String query(String method, String parameters) {

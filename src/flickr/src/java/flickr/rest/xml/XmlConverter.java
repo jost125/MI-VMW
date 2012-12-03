@@ -39,8 +39,6 @@ public class XmlConverter {
 			photo.setFarm(farm);
 			photo.setTitle(title);
 
-			System.out.println(photo);
-
 			photos.add(photo);
 		}
 
