@@ -17,9 +17,9 @@ public class RestClient {
 		this.xmlConverter = xmlConverter;
 	}
 
-	public List<Photo> searchPhotosByKeyword(String keyword) {
+	public List<Photo> searchPhotosByKeyword(String keyword, Integer page) {
 		String method = "flickr.photos.search";
-		String parameters = "text=" + keyword + "&sort=relevance";
+		String parameters = "text=" + keyword + "&sort=relevance&page=" + page;
 		String xml = query(method, parameters);
 
 		System.out.println(xml);

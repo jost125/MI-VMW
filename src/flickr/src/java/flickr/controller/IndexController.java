@@ -24,7 +24,7 @@ public class IndexController {
 	@RequestMapping(value="/results")
 	public String results(Model model) {
 		String keyword = "house";
-		model.addAttribute("photos", restClient.searchPhotosByKeyword(keyword));
+		model.addAttribute("photos", restClient.searchPhotosByKeyword(keyword, 1));
 		return "results";
 	}
 
