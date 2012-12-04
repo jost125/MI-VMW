@@ -10,6 +10,7 @@
 		<script type="text/javascript" charset="utf-8" src="resources/jquery-1.8.3.min.js" ></script>
 		<script type="text/javascript" charset="utf-8" src="resources/jquery-ui-1.9.2.custom.min.js" ></script>
 		<script type="text/javascript" charset="utf-8" src="resources/farbtastic.js" ></script>
+		<script type="text/javascript" charset="utf-8" src="resources/custom.js" ></script>
 
 	</head>
 	<body>
