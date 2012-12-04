@@ -39,4 +39,5 @@
 	</bean>
 
 	<bean id="similarityRanker" class="flickr.api.image.SimilarityRanker"></bean>
+	<bean id="searchValidator" class="flickr.form.SearchValidator"></bean>
 </beans>

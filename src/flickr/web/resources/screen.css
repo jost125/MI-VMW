@@ -41,6 +41,7 @@ body {
 }
 
 div#ajax-spinner {
+	display: none;
 	border: 1px solid #CCCCCC;
 	background-color: #FFFFFF;
 	padding: 10px;

@@ -33,4 +33,9 @@ public class Search {
 		this.numberOfResults = numberOfResults;
 	}
 
+	@Override
+	public String toString() {
+		return "Search{" + "term=" + term + ", color=" + color + ", numberOfResults=" + numberOfResults + '}';
+	}
+
 }

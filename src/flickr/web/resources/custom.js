@@ -10,13 +10,29 @@ $(function() {
 	});
 
 	$('input[name=submit]').click(function() {
-//		$(this).attr('disabled', true);
-		$(this).attr('value', 'Loading...');
-		$('<div id="ajax-spinner">We\'re processing your request. <br /> Images are being loaded from Flickr.</div>').appendTo("body").css({
-			position: "fixed",
-			left: "40%",
-			top: "50%"
-		});
+		if (isValid()) {
+	//		$(this).attr('disabled', true);
+			$(this).attr('value', 'Loading...');
+			$('#ajax-spinner').appendTo("body").css({
+				position: "fixed",
+				left: "40%",
+				top: "50%"
+			}).show();
+		} else {
+			return false;
+		}
 	});
 
 });
+
+function isValid() {
+	if ($('input[name=term]').attr('value') == "") {
+		alert('Field keyword must be filled in.');
+		return false;
+	}
+	if (!($('input[name=numberOfResults]').attr('value') > 0)) {
+		alert('Field number of items must contains value greater than zero.');
+		return false;
+	}
+	return true;
+}
