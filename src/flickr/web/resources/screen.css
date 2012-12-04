@@ -45,3 +45,14 @@ body {
 	left: 50px;
 	
 }
+
+div#ajax-spinner {
+	border: 1px solid #CCCCCC;
+	background-color: #FFFFFF;
+	padding: 10px;
+	background-image: url('ajax-loader.gif');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	padding-left: 50px;
+	z-index: 1000000;
+}
