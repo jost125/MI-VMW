@@ -1,8 +1,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<div id="ajax-spinner">We're processing your request. <br /> Images are being loaded from Flickr.</div>
 <div class="container-fluid">
-
 <div class="row-fluid">
 	<div class="span2">
 		<form:form modelAttribute="searchForm" method="get" action="results">
