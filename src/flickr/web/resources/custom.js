@@ -11,15 +11,17 @@ $(function() {
 		});
 	});
 
-	$('input[name=submit]').click(function() {
+	$('form').submit(function() {
 		if (isValid()) {
-	//		$(this).attr('disabled', true);
-			$(this).attr('value', 'Loading...');
+			var submitButton = $('input[name=submit]');
+			submitButton.attr('value', 'Loading...');
 			$('#ajax-spinner').appendTo("body").css({
 				position: "fixed",
 				left: "40%",
 				top: "50%"
 			}).show();
+			submitButton.attr("disabled", "true");
+			return true;
 		} else {
 			return false;
 		}
