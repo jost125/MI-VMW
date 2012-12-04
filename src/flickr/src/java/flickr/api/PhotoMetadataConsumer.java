@@ -4,6 +4,7 @@ import flickr.api.image.Color;
 import flickr.api.image.SimilarityRanker;
 import flickr.parallel.CubbyHole;
 import flickr.rest.response.Photo;
+import flickr.timemeasure.FileLogger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -14,19 +15,21 @@ public class PhotoMetadataConsumer extends Thread {
 	private Color color;
 	private SimilarityRanker similarityRanker;
 	private List<Thread> threadPool;
+	private FileLogger fileLogger;
 
-	public PhotoMetadataConsumer(CubbyHole cubbyHole, Color color, SimilarityRanker similarityRanker) {
+	public PhotoMetadataConsumer(CubbyHole cubbyHole, FileLogger fileLogger, Color color, SimilarityRanker similarityRanker) {
 		this.cubbyHole = cubbyHole;
 		this.color = color;
 		this.similarityRanker = similarityRanker;
 		this.threadPool = new ArrayList<Thread>();
+		this.fileLogger = fileLogger;
 	}
 
 	@Override
 	public void run() {
 		while (cubbyHole.hasUnrankedPhotos()) {
 			Photo photo = cubbyHole.getNextUnrankedPhoto();
-			CountRankForPhotoThread thread = new CountRankForPhotoThread(photo, color, similarityRanker, cubbyHole);
+			CountRankForPhotoThread thread = new CountRankForPhotoThread(photo, color, similarityRanker, cubbyHole, fileLogger);
 			thread.start();
 			threadPool.add(thread);
 		}
