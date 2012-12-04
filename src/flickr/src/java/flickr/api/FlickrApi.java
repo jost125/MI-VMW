@@ -15,17 +15,17 @@ public class FlickrApi {
 
 	private RestClient restClient;
 	private SimilarityRanker similarityRanker;
-	private CubbyHole cubbyHole;
 
-	public FlickrApi(RestClient restClient, SimilarityRanker similarityRanker, CubbyHole cubbyHole) {
+	public FlickrApi(RestClient restClient, SimilarityRanker similarityRanker) {
 		this.restClient = restClient;
 		this.similarityRanker = similarityRanker;
-		this.cubbyHole = cubbyHole;
 	}
 
 	public Queue<Photo> getPhotos(String keyword, Color color, Integer limit) {
 		Queue<Photo> orderedPhotos = new PriorityQueue<Photo>(limit, new PhotoComparator());
-		
+
+		CubbyHole cubbyHole = new CubbyHole();
+
 		PhotoMetadataProducer producer = new PhotoMetadataProducer(cubbyHole, restClient, keyword, limit);
 		PhotoMetadataConsumer consumer = new PhotoMetadataConsumer(cubbyHole, color, similarityRanker);
 		producer.start();
