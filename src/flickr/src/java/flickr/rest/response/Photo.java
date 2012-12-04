@@ -66,4 +66,9 @@ public class Photo {
 		this.rank = rank;
 	}
 
+	@Override
+	public String toString() {
+		return "Photo{" + "id=" + id + ", owner=" + owner + ", secret=" + secret + ", server=" + server + ", farm=" + farm + ", title=" + title + ", rank=" + rank + '}';
+	}
+
 }
