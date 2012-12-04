@@ -31,8 +31,8 @@ function isValid() {
 		alert('Field keyword must be filled in.');
 		return false;
 	}
-	if (!($('input[name=numberOfResults]').attr('value') > 0)) {
-		alert('Field number of items must contains value greater than zero.');
+	if (!(($('input[name=numberOfResults]').attr('value') > 0) && ($('input[name=numberOfResults]').attr('value') <= 1500))) {
+		alert('Field number of items must contains value between 1 and 1500.');
 		return false;
 	}
 	return true;
