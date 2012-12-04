@@ -4,9 +4,11 @@ $(function() {
 			direction: 'left'
 		});
 	});
-	$('#colorpicker').farbtastic(function(color) {
-		$('input[name=color]').attr('value', color);
-		$('#colorpicker-showColor').attr('style', 'background-color:' + color);
+	$('#colorpicker').each(function() {
+		$(this).farbtastic(function(color) {
+			$('input[name=color]').attr('value', color);
+			$('#colorpicker-showColor').attr('style', 'background-color:' + color);
+		});
 	});
 
 	$('input[name=submit]').click(function() {
@@ -22,7 +24,6 @@ $(function() {
 			return false;
 		}
 	});
-
 });
 
 function isValid() {
@@ -36,3 +37,10 @@ function isValid() {
 	}
 	return true;
 }
+
+$(function() {
+	$('.results img').load(function() {
+		$(this).fadeTo(2000, 1);
+	});
+	$('.results a').lightBox()
+});

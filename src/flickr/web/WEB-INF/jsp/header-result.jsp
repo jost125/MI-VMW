@@ -6,12 +6,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Flickr feature-based reranking</title>
 		<link rel="stylesheet" media="all" type="text/css" href="<c:url value="/resources/bootstrap.min.css" />" />
+		<link rel="stylesheet" media="all" type="text/css" href="<c:url value="/resources/bootstrap-responsive.min.css" />" />
 		<link rel="stylesheet" media="all" type="text/css" href="<c:url value="/resources/farbtastic.css" />" />
 		<link rel="stylesheet" media="all" type="text/css" href="<c:url value="/resources/screen.css" />" />
+		<link rel="stylesheet" media="all" type="text/css" href="<c:url value="/resources/jquery.lightbox-0.5.css" />" />
 		<script type="text/javascript" charset="utf-8" src="<c:url value="/resources/jquery-1.8.3.min.js" />" ></script>
 		<script type="text/javascript" charset="utf-8" src="<c:url value="/resources/jquery-ui-1.9.2.custom.min.js" />" ></script>
 		<script type="text/javascript" charset="utf-8" src="<c:url value="/resources/farbtastic.js" />" ></script>
 		<script type="text/javascript" charset="utf-8" src="<c:url value="/resources/custom.js" />" ></script>
+		<script type="text/javascript" charset="utf-8" src="<c:url value="/resources/jquery.lightbox-0.5.min.js" />" ></script>
 
 	</head>
 	<body>

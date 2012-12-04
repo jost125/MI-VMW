@@ -35,8 +35,10 @@ body {
 #colorpicker {
 	display: none;
 	text-align: center;
-	position: relative;
-	left: 50px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 195px;
+	height: 195px;
 	
 }
 

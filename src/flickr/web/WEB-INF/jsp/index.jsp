@@ -2,6 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <jsp:include page="header.jsp" />
 <div id="ajax-spinner">We're processing your request. <br /> Images are being loaded from Flickr.</div>
+<div class="container">
 <form:form modelAttribute="searchForm" method="get" action="results" class="form-signin">
 	<form:errors path="term" cssClass="error" />
 
@@ -20,5 +21,5 @@
 	<input type="submit" name="submit" value="Search" class="btn">
 </form:form>
 
-
+</div>
 <jsp:include page="footer.jsp" />
