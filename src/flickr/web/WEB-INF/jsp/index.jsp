@@ -1,19 +1,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <jsp:include page="header.jsp" />
 
-<script type="text/javascript">
-	$(function() {
-		$('#colorpicker-showColor').click(function() {
-			$('#colorpicker').toggle('slide', {direction: 'left'});
-		});
-		$('#colorpicker').farbtastic(function(color) {
-			$('input[name=color]').attr('value', color);
-			$('#colorpicker-showColor').attr('style', 'background-color:' + color);
-		});
-	});
-</script>
-
-
 <form:form modelAttribute="searchForm" method="get" action="results" class="form-signin">
 	<label>Keywords</label>
 	<form:input path="term" class="input-block-level"/>
