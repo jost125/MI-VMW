@@ -14,7 +14,7 @@
 </script>
 
 
-<form:form modelAttribute="searchForm" method="get" action="showResults.htm" class="form-signin">
+<form:form modelAttribute="searchForm" method="get" action="results" class="form-signin">
 	<label>Keywords</label>
 	<form:input path="term" class="input-block-level"/>
 
