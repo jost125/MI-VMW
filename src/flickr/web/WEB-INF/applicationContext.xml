@@ -36,7 +36,9 @@
 	<bean id="flickerApi" class="flickr.api.FlickrApi">
 		<constructor-arg ref="restClient" />
 		<constructor-arg ref="similarityRanker" />
+		<constructor-arg ref="cubbyHole" />
 	</bean>
 
 	<bean id="similarityRanker" class="flickr.api.image.SimilarityRanker"></bean>
+	<bean id="cubbyHole" class="flickr.parallel.CubbyHole"></bean>
 </beans>

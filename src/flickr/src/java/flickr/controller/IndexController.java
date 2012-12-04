@@ -25,7 +25,7 @@ public class IndexController {
 	@RequestMapping(value="/results")
 	public String results(Model model) {
 		String keyword = "house";
-		model.addAttribute("photos", flickrApi.getPhotos(keyword, Color.getInstaceFromHex("FFFFFF"), 10));
+		model.addAttribute("photos", flickrApi.getPhotos(keyword, Color.getInstaceFromHex("0000FF"), 1000));
 		return "results";
 	}
 
