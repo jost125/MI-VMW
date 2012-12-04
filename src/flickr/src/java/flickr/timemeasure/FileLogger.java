@@ -14,7 +14,7 @@ public class FileLogger {
 		this.file = new File(file);
 	}
 
-	public void log(String line) {
+	public synchronized void log(String line) {
 		FileWriter fstream = null;
 		try {
 			fstream = new FileWriter(file, true);
